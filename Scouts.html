@@ -47,6 +47,7 @@
         </div>
         <nav class="flex flex-col space-y-4 text-center mt-8 text-2xl">
             <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('home-page'); toggleMobileMenu();">Home</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('squirrels-page'); toggleMobileMenu();">Squirrels</a>
             <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('beavers-page'); toggleMobileMenu();">Beavers</a>
             <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('cubs-page'); toggleMobileMenu();">Cubs</a>
             <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('scouts-page'); toggleMobileMenu();">Scouts</a>
@@ -62,11 +63,12 @@
 <header class="bg-scout-green text-white shadow-lg sticky top-0 z-40">
     <nav class="container mx-auto p-4 flex justify-between items-center">
         <!-- Logo/Group Name -->
-        <a href="#" onclick="showPage('home-page')" class="text-2xl md:text-3xl font-bold font-heading">5th Heswall Scouts</a>
+        <a href="#" onclick="showPage('home-page')" class="text-2xl md:text-3xl font-bold font-heading">5th Heswall</a>
         
         <!-- Desktop Nav -->
         <div class="hidden md:flex space-x-6">
             <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('home-page')">Home</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('squirrels-page')">Squirrels</a>
             <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('beavers-page')">Beavers</a>
             <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('cubs-page')">Cubs</a>
             <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('scouts-page')">Scouts</a>
@@ -115,6 +117,27 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Squirrels Page -->
+    <div id="squirrels-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-brown text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-scout-green">Squirrels (4-6 years)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">
+                            We are excited about the new Squirrels section for 4- and 5-year-olds. It's the first step on the scouting journey, offering fun, friendship, and skills for life through play and adventure.
+                        </p>
+                        <p class="mb-4">
+                            Currently, we are looking for dedicated volunteers to help us launch this new section! Without a leader, we cannot open the Squirrels drey. If you are passionate about helping young people and would like to get involved, please reach out.
+                        </p>
+                        <a href="mailto:volunteers@example.com" class="inline-block bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center mt-4">Volunteer Today!</a>
+                    </div>
+                    <img src="Squirrels.png" alt="Squirrel Scouts" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Beavers Page -->
@@ -445,15 +468,15 @@
         </div>
     </div>
 
-<!-- Contact Us Page -->
+    <!-- Contact Us Page -->
     <div id="contact-page" class="page-content py-16">
         <div class="container mx-auto px-4 md:px-8">
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-green">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-blue">Get in Touch</h2>
                 <div class="max-w-xl mx-auto text-center">
                     <p class="text-lg leading-relaxed mb-6">
-                        Interested in joining or learning more? Feel free to contact us with any questions!
-                    </p>
+                        Interested in joining a specific section or have a question for a particular leader? Click the appropriate button below to send an email directly to that section's team.
+                     </p>
                     <!-- New section with address and links -->
                     <div class="space-y-6">
                         <div class="p-6 bg-gray-50 rounded-2xl shadow-inner border border-gray-200">
@@ -470,9 +493,12 @@
                                 </svg>
                             </a>
                         </div>
-                        <a href="mailto:hannahback07@gmail.com" class="bg-scout-green text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-blue transition duration-300 w-full md:w-auto inline-block">
-                            Email Us
-                        </a>
+                        <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 justify-center">
+                            <a href="mailto:1x4backh@gmail.com" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Beavers</a>
+                            <a href="mailto:1x4backh@gmail.com" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Cubs</a>
+                            <a href="mailto:1x4backh@gmail.com" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Scouts</a>
+                            <a href="mailto:1x4backh@gmail.com" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Young Leaders</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -522,6 +548,21 @@
         } else {
             content.classList.add('hidden');
             arrow.classList.remove('rotate-180');
+        }
+    }
+    
+    // JavaScript function to dynamically create and open email links
+    function sendEmail(section) {
+        const emailMap = {
+            'squirrels': '14backh@gmail.com',
+            'beavers': '14backh@gmail.com',
+            'cubs': '14backh@gmail.com',
+            'scouts': '14backh@gmail.com',
+            'youngleaders': '14backh@gmail.com'
+        };
+        const emailAddress = emailMap[section];
+        if (emailAddress) {
+            window.location.href = `mailto:${emailAddress}`;
         }
     }
     
