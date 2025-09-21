@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5th Heswall Scout Group</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'scout-green': '#1E8142',
+                        'scout-blue': '#1E5A81',
+                        'scout-brown': '#A47449',
+                        'scout-gold': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            scroll-behavior: smooth;
+        }
+        /* Custom CSS to hide pages by default, except the first one */
+        .page-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+<!-- Mobile Nav Menu -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full bg-white transition-transform transform -translate-x-full ease-in-out duration-300 md:hidden">
+    <div class="p-6">
+        <div class="flex justify-end">
+            <button onclick="toggleMobileMenu()" class="text-gray-600 focus:outline-none">
+                <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-center mt-8 text-2xl">
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('home-page'); toggleMobileMenu();">Home</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('beavers-page'); toggleMobileMenu();">Beavers</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('cubs-page'); toggleMobileMenu();">Cubs</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('scouts-page'); toggleMobileMenu();">Scouts</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('young-leaders-page'); toggleMobileMenu();">Young Leaders</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('leaders-page'); toggleMobileMenu();">Leaders</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('about-page'); toggleMobileMenu();">About Us</a>
+            <a href="#" class="text-scout-blue hover:text-scout-green font-semibold" onclick="showPage('contact-page'); toggleMobileMenu();">Contact Us</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="bg-scout-green text-white shadow-lg sticky top-0 z-40">
+    <nav class="container mx-auto p-4 flex justify-between items-center">
+        <!-- Logo/Group Name -->
+        <a href="#" onclick="showPage('home-page')" class="text-2xl md:text-3xl font-bold font-heading">5th Heswall Scouts</a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex space-x-6">
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('home-page')">Home</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('beavers-page')">Beavers</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('cubs-page')">Cubs</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('scouts-page')">Scouts</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('young-leaders-page')">Young Leaders</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('leaders-page')">Leaders</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('about-page')">About Us</a>
+            <a href="#" class="hover:text-scout-gold font-medium transition duration-300" onclick="showPage('contact-page')">Contact Us</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main class="py-16 md:py-24">
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-content">
+        <!-- Hero Section -->
+        <section class="bg-cover bg-center text-white py-24 text-center rounded-b-3xl shadow-xl mx-4 mt-4 overflow-hidden" style="background-image: url('Background.jpg');">
+            <div class="bg-black bg-opacity-40 p-8 rounded-2xl mx-auto max-w-2xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg">Discover Adventure with Us!</h1>
+                <p class="text-lg md:text-xl drop-shadow-md">Join our scout group and embark on a journey of fun, learning, and outdoor exploration.</p>
+            </div>
+        </section>
+    
+        <!-- Existing About Us section goes here -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-green">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-blue">About Our Group</h2>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://placehold.co/600x400/A47449/FFFFFF?text=Scout+Group" alt="A scout group camping" class="rounded-2xl shadow-md w-full" onerror="this.src='https://placehold.co/600x400/A47449/FFFFFF?text=Image+Not+Found'">
+                        <div class="text-lg leading-relaxed">
+                            <p class="mb-4">
+                                Our scout group is dedicated to providing young people with a range of challenging and fun activities. We believe in building confidence, fostering teamwork, and teaching valuable life skills in a supportive and inclusive environment.
+                            </p>
+                            <p>
+                                From hiking and camping to community service projects and creative workshops, our program is designed to help every scout grow into a resilient, compassionate, and responsible individual. We welcome all young adventurers to join us!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Beavers Page -->
+    <div id="beavers-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-blue">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-green">Beavers (6-8 years)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">Beaver Scouts are young people aged between 6 and 8 years old. They meet weekly to take part in a wide range of activities, including games, crafts, and outdoor adventures.</p>
+                        <p class="mb-4">Our Beaver Colony is the first step on the Scouting journey. It's all about making new friends, having fun, and learning new things. We focus on building confidence and exploring the world around us in a safe and friendly environment.</p>
+                        <p>Popular activities include nature walks, building small projects, and earning badges. The program is designed to be gentle and engaging for this age group, encouraging them to 'fun and friends'.</p>
+                    </div>
+                    <img src="Beavers.png" alt="Beaver Scouts doing an activity" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cubs Page -->
+    <div id="cubs-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-brown">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-green">Cubs (8-10.5 years)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">Cub Scouts are young people aged between 8 and 10.5 years. They meet each week to enjoy a huge variety of activities, from camping and hiking to team games and creative challenges.</p>
+                        <p class="mb-4">The Cub section builds on the foundations of Beavers, introducing more complex skills and bigger adventures. We aim to help Cubs develop teamwork, leadership, and problem-solving abilities.</p>
+                        <p>Highlights of the Cub program include overnight camps, outdoor cooking, and earning challenge badges that test their skills in areas like navigation, first aid, and art. The motto for Cubs is 'do your best'.</p>
+                    </div>
+                    <img src="Cubs.png" alt="Cub Scouts hiking or camping" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scouts Page -->
+    <div id="scouts-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-blue">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-green">Scouts (10.5-14 years)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">Scouts are young people aged between 10.5 and 14 years. The Scout Troop is where young people get to take part in adventurous activities and develop skills for life.</p>
+                        <p class="mb-4">The program is more independent and scout-led, with a focus on personal growth and leadership. We take part in a wide range of activities, including expeditions, water sports, and climbing.</p>
+                        <p>Scouts are encouraged to plan their own activities and work together in patrols. This section is all about pushing personal boundaries, gaining confidence, and working towards the Chief Scout's Gold Award. The motto for Scouts is 'be prepared'.</p>
+                    </div>
+                    <img src="Scouts.jpg" alt="Scouts doing an adventurous activity like climbing" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Young Leaders Page -->
+    <div id="young-leaders-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-brown">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-green">Young Leaders (14-18 years)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">Young Leaders are Explorer Scouts who volunteer to work with one of the younger sections, such as Beavers or Cubs. It's a fantastic opportunity to gain leadership skills, build confidence, and make a real difference.</p>
+                        <p class="mb-4">The Young Leader scheme provides training and support, helping young people to learn how to run activities, manage a group, and act as role models for younger scouts. It's a great stepping stone into adult leadership.</p>
+                        <p>Being a Young Leader is also a great way to complete the service section of the Duke of Edinburgh's Award and other awards. It's a valuable and rewarding experience for anyone interested in developing their skills and helping others.</p>
+                    </div>
+                    <img src="YLs.jpg" alt="A Young Leader guiding younger scouts" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaders Page -->
+    <div id="leaders-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-blue">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-green">Meet Our Leaders</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Left side: Individual Leader Profiles -->
+                    <div class="space-y-4">
+                        <!-- Leader 1 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader1')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Geoff Back (Group Scout Leader)</h3>
+                                <!-- Dropdown arrow icon -->
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader1-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/A47449/FFFFFF?text=Geoff" alt="Picture of Geoff" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 2 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader2')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Andy Back (Scout Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader2-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E8142/FFFFFF?text=Andy" alt="Picture of Andy" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 3 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader3')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Diane Barrowclough (Treasure/Assistant Scout Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader3-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E5A81/FFFFFF?text=Diane" alt="Picture of Diane" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 4 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader4')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Duncan C (Cub Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader4-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E8142/FFFFFF?text=Duncan" alt="Picture of Duncan" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 5 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader5')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Dave D (Assistant Cub Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader5-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/A47449/FFFFFF?text=Dave" alt="Picture of Dave" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 6 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader6')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Hannah Back (Assistant Cub Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader6-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E5A81/FFFFFF?text=Hannah" alt="Picture of Hannah" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 7 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader7')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Isaac Harrison (Assistant Cub Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader7-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E8142/FFFFFF?text=Isaac" alt="Picture of Isaac" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 8 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader8')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Will Hampshire (Assistant Cub Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader8-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/A47449/FFFFFF?text=Will" alt="Picture of Will" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 9 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader9')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Claire (Beaver Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader9-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E5A81/FFFFFF?text=Claire" alt="Picture of Claire" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 10 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader10')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Michele Casey (Assistant Beaver Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader10-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E8142/FFFFFF?text=Michele" alt="Picture of Michele" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 11 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader11')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Jason Barrowclough (Assistant Beaver Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader11-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/A47449/FFFFFF?text=Jason" alt="Picture of Jason" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 12 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader12')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Adam Grannell (Assistant Beaver Leader)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader12-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/1E5A81/FFFFFF?text=Adam" alt="Picture of Adam" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Leader 13 -->
+                        <div class="bg-gray-50 rounded-2xl p-4 cursor-pointer hover:bg-gray-100 transition-colors duration-200" onclick="toggleDropdown('leader13')">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-xl font-semibold text-scout-blue">Steve Pillow (Group President)</h3>
+                                <svg class="h-6 w-6 text-scout-green transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div id="leader13-content" class="hidden mt-4 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <img src="https://placehold.co/200x200/A47449/FFFFFF?text=Steve" alt="Picture of Steve" class="rounded-xl w-full md:w-auto h-auto object-cover md:col-span-1">
+                                    <div class="md:col-span-2 text-base leading-relaxed">
+                                        <p>Brief info on leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right side: Image for desktop -->
+                    <div class="hidden md:block">
+                        <img src="https://placehold.co/600x600/1E8142/FFFFFF?text=Group+of+Leaders" alt="Group of scout leaders smiling" class="rounded-3xl shadow-md w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x600/1E8142/FFFFFF?text=Image+Not+Found'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Page -->
+    <div id="about-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-green">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-blue">About Our Group</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <img src="https://placehold.co/600x400/A47449/FFFFFF?text=Scout+Group" alt="A scout group camping" class="rounded-2xl shadow-md w-full" onerror="this.src='https://placehold.co/600x400/A47449/FFFFFF?text=Image+Not+Found'">
+                    <div class="text-lg leading-relaxed">
+                        <p class="mb-4">
+                            Our scout group is dedicated to providing young people with a range of challenging and fun activities. We believe in building confidence, fostering teamwork, and teaching valuable life skills in a supportive and inclusive environment.
+                        </p>
+                        <p>
+                            From hiking and camping to community service projects and creative workshops, our program is designed to help every scout grow into a resilient, compassionate, and responsible individual. We welcome all young adventurers to join us!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Contact Us Page -->
+    <div id="contact-page" class="page-content py-16">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-green">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-blue">Get in Touch</h2>
+                <div class="max-w-xl mx-auto text-center">
+                    <p class="text-lg leading-relaxed mb-6">
+                        Interested in joining or learning more? Feel free to contact us with any questions!
+                    </p>
+                    <!-- New section with address and links -->
+                    <div class="space-y-6">
+                        <div class="p-6 bg-gray-50 rounded-2xl shadow-inner border border-gray-200">
+                            <h3 class="text-xl font-semibold text-scout-blue mb-2">Our Meeting Place</h3>
+                            <address class="not-italic text-lg mb-2">
+                                Sandy Lane<br>
+                                Heswall, Wirral<br>
+                                CH60 5SX
+                            </address>
+                            <a href="https://maps.app.goo.gl/7jeeRJ7GWMCrFbpz6" target="_blank" rel="noopener noreferrer" class="text-scout-green hover:underline font-semibold transition-colors duration-300 inline-flex items-center">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.0818637019242!2d-3.0988651230133732!3d53.33209667578928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ad728b128e757%3A0xd8b6ce79cb2f801!2sScout%20Hall!5e1!3m2!1sen!2suk!4v1758328731434!5m2!1sen!2suk" width="auto" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
+                        <a href="mailto:hannahback07@gmail.com" class="bg-scout-green text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-blue transition duration-300 w-full md:w-auto inline-block">
+                            Email Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-scout-green text-white py-6 mt-10">
+    <div class="container mx-auto text-center text-sm md:text-base">
+        <p>&copy; 2024 5th Heswall Scout Group. All rights reserved.</p>
+        <p class="mt-2">Built with adventure and teamwork.</p>
+    </div>
+</footer>
+
+<script>
+    // JavaScript to show and hide pages
+    function showPage(pageId) {
+        // Hide all page containers
+        const pages = document.querySelectorAll('.page-content');
+        pages.forEach(page => {
+            page.style.display = 'none';
+        });
+
+        // Show the requested page
+        const currentPage = document.getElementById(pageId);
+        if (currentPage) {
+            currentPage.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        }
+    }
+
+    // JavaScript for mobile menu toggle
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('-translate-x-full');
+    }
+
+    // JavaScript for dropdown toggle on Leaders page
+    function toggleDropdown(id) {
+        const content = document.getElementById(id + '-content');
+        const arrow = document.querySelector(`#${id} svg`);
+
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            arrow.classList.add('rotate-180');
+        } else {
+            content.classList.add('hidden');
+            arrow.classList.remove('rotate-180');
+        }
+    }
+    
+    // Show the Home page on initial load
+    window.onload = function() {
+        showPage('home-page');
+    };
+</script>
+
+</body>
+</html>
