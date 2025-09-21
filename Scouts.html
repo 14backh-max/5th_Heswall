@@ -33,6 +33,41 @@
         .page-content {
             display: none;
         }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -132,7 +167,7 @@
                         <p class="mb-4">
                             Currently, we are looking for dedicated volunteers to help us launch this new section! Without a leader, we cannot open the Squirrels drey. If you are passionate about helping young people and would like to get involved, please reach out.
                         </p>
-                        <a href="mailto:volunteers@example.com" class="inline-block bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center mt-4">Volunteer Today!</a>
+                        <a href="#" class="inline-block bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center mt-4" onclick="showPage('contact-page')">Volunteer Today!</a>
                     </div>
                     <img src="Squirrels.png" alt="Squirrel Scouts" class="rounded-2xl shadow-md w-full md:w-128 mx-auto mt-8 md:mt-0">
                 </div>
@@ -468,17 +503,47 @@
         </div>
     </div>
 
-    <!-- Contact Us Page -->
+    <!-- Contact Us Landing Page -->
     <div id="contact-page" class="page-content py-16">
         <div class="container mx-auto px-4 md:px-8">
             <div class="bg-white p-8 md:p-12 rounded-3xl shadow-lg border-2 border-scout-green">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 text-scout-blue">Get in Touch</h2>
-                <div class="max-w-xl mx-auto text-center">
-                    <p class="text-lg leading-relaxed mb-6">
-                        Interested in joining a specific section or have a question for a particular leader? Click the appropriate button below to send an email directly to that section's team.
-                     </p>
-                    <!-- New section with address and links -->
-                    <div class="space-y-6">
+                <div class="max-w-xl mx-auto">
+                    <p class="text-center text-lg leading-relaxed mb-6">
+                        Interested in joining a section or have a general question? Fill out the form below and we will get back to you as soon as possible.
+                    </p>
+                    <form id="contact-form" onsubmit="submitForm(event)" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-scout-blue focus:ring focus:ring-scout-blue focus:ring-opacity-50" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-gray-700">Your Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-scout-blue focus:ring focus:ring-scout-blue focus:ring-opacity-50" required>
+                        </div>
+                        <div>
+                            <label for="section" class="block text-lg font-medium text-gray-700">Section</label>
+                            <select id="section" name="section" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-scout-blue focus:ring focus:ring-scout-blue focus:ring-opacity-50" required>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Squirrels">Squirrels</option>
+                                <option value="Beavers">Beavers</option>
+                                <option value="Cubs">Cubs</option>
+                                <option value="Scouts">Scouts</option>
+                                <option value="Young Leaders">Young Leaders</option>
+                                <option value="Leaders">Leaders</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-scout-blue focus:ring focus:ring-scout-blue focus:ring-opacity-50" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-scout-blue text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto inline-block">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <div class="space-y-6 mt-10 text-center">
                         <div class="p-6 bg-gray-50 rounded-2xl shadow-inner border border-gray-200">
                             <h3 class="text-xl font-semibold text-scout-blue mb-2">Our Meeting Place</h3>
                             <address class="not-italic text-lg mb-2">
@@ -486,19 +551,13 @@
                                 Heswall, Wirral<br>
                                 CH60 5SX
                             </address>
-                            <a href="https://maps.app.goo.gl/7jeeRJ7GWMCrFbpz6" target="_blank" rel="noopener noreferrer" class="text-scout-green hover:underline font-semibold transition-colors duration-300 inline-flex items-center">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.0818637019242!2d-3.0988651230133732!3d53.33209667578928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ad728b128e757%3A0xd8b6ce79cb2f801!2sScout%20Hall!5e1!3m2!1sen!2suk!4v1758328731434!5m2!1sen!2suk" width="auto" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.0818637019242!2d-3.0988651230133732!3d53.33209667578928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487ad728b128e757%3A0xd8b6ce79cb2f801!2sScout%20Hall!5e1!3m2!1sen!2suk!4v1758328731434!5m2!1sen!2suk" width="auto" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-48 rounded-2xl"></iframe>
+                            <a href="https://maps.app.goo.gl/7jeeRJ7GWMCrFbpz6" target="_blank" rel="noopener noreferrer" class="text-scout-green hover:underline font-semibold transition-colors duration-300 inline-flex items-center mt-4">
+                                View on Google Maps
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
                             </a>
-                        </div>
-                        <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 justify-center">
-                            <a href="#" onclick="sendEmail('squirrels')" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Squirrels</a>
-                            <a href="#" onclick="sendEmail('beavers')" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Beavers</a>
-                            <a href="#" onclick="sendEmail('cubs')" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Cubs</a>
-                            <a href="#" onclick="sendEmail('scouts')" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Scouts</a>
-                            <a href="#" onclick="sendEmail('youngleaders')" class="bg-scout-blue text-white font-semibold py-3 px-6 rounded-full shadow-md hover:bg-scout-green transition duration-300 w-full md:w-auto text-center">Contact Young Leaders</a>
                         </div>
                     </div>
                 </div>
@@ -506,6 +565,16 @@
         </div>
     </div>
 </main>
+
+<!-- Modal for success message -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2 class="text-2xl font-bold text-scout-blue mb-4">Message Sent!</h2>
+        <p class="text-lg">Thank you for your message. We will get back to you as soon as possible.</p>
+        <button onclick="closeModal()" class="mt-6 bg-scout-blue text-white font-semibold py-2 px-6 rounded-full hover:bg-scout-green transition duration-300">Close</button>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="bg-scout-green text-white py-6 mt-10">
@@ -551,22 +620,54 @@
             arrow.classList.remove('rotate-180');
         }
     }
-    
-    // JavaScript function to dynamically create and open email links
-    function sendEmail(section) {
-        const emailMap = {
-            'squirrels': '14backh@gmail.com',
-            'beavers': '14backh@gmail.com',
-            'cubs': '14backh@gmail.com',
-            'scouts': '14backh@gmail.com',
-            'youngleaders': '14backh@gmail.com'
-        };
-        const emailAddress = emailMap[section];
-        if (emailAddress) {
-            window.location.href = `mailto:${emailAddress}`;
+
+    // JavaScript for modal handling
+    function showModal() {
+        document.getElementById('success-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('success-modal').style.display = 'none';
+    }
+
+    // JavaScript to handle the form submission using Formspree
+    async function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const form = document.getElementById('contact-form');
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const section = formData.get('section');
+        
+        // Dynamically add the subject to the form data
+        formData.append('_subject', `${section} inquiry from ${name}`);
+        
+        // Replace with your actual Formspree endpoint URL
+        // Instructions: Go to https://formspree.io, create a new form, and copy the URL.
+        const formspreeUrl = 'https://formspree.io/f/mrbyzqee';
+
+        try {
+            const response = await fetch(formspreeUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                showModal();
+                form.reset(); // Clear the form
+            } else {
+                console.error('Form submission failed');
+                // Optional: Show an error message to the user
+            }
+        } catch (error) {
+            console.error('An error occurred during form submission:', error);
+            // Optional: Show an error message to the user
         }
     }
-    
+
     // Show the Home page on initial load
     window.onload = function() {
         showPage('home-page');
